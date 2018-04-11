@@ -1,4 +1,5 @@
 <?php
+require_once('State.php');
 class SoldState implements State
 {
     public $gumballMachine;
@@ -20,7 +21,7 @@ class SoldState implements State
 
     public function turnCrank()
     {
-        echo "Turning twice doesn't get you another gumball!");
+        echo "Turning twice doesn't get you another gumball!";
     }
 
     public function dispense()

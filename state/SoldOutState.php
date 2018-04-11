@@ -1,4 +1,5 @@
 <?php
+require_once('State.php');
 class SoldOutState implements State
 {
     public $gumballMachine;

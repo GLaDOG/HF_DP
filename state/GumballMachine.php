@@ -1,16 +1,21 @@
 <?php
+require_once('HasQuarterState.php');
+require_once('NoQuarterState.php');
+require_once('SoldOutState.php');
+require_once('SoldState.php');
 class GumballMachine
 {
-    public $soldOutState;
-    public $noQuarterState;
-    public $hasQuarterState;
-    public $soldState;
+    protected $soldOutState;
+    protected $noQuarterState;
+    protected $hasQuarterState;
+    protected $soldState;
 
-    public $state = $soldOutState;//能初始化成功吗?
-    public $count = 0;
+    protected $state;
+    protected $count = 0;
 
     public function __construct($numberGumballs)
     {
+        $this->state = $this->soldOutState;//能初始化成功吗?
         $this->soldOutState = new SoldOutState($this);
         $this->noQuarterState = new NoQuarterState($this);
         $this->hasQuarterState = new HasQuarterState($this);
@@ -24,28 +29,28 @@ class GumballMachine
 
     public function insertQuarter()
     {
-        $state->insertQuarter();
+        $this->state->insertQuarter();
     }
 
     public function ejectQuarter()
     {
-        $state->ejectQuarter();
+        $this->state->ejectQuarter();
     }
 
     public function turnCrank()
     {
-        $state->turnCrank();
-        $state->dispense();
+        $this->state->turnCrank();
+        $this->state->dispense();
     }
 
     public function setState(State $state)
     {
-        $this->state = $state;
+        $this->state = $this->state;
     }
 
     public function releaseBall()
     {
-        echo "A gumball comes rolling out the slot...") . PHP_EOL;
+        echo "A gumball comes rolling out the slot..." . PHP_EOL;
         if ($this->count != 0) {
             $this->count--;
         }

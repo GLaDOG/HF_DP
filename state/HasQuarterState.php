@@ -1,4 +1,5 @@
 <?php
+require_once('State.php');
 class HasQuarterState implements State
 {
     public $gumballMachine;
@@ -10,7 +11,7 @@ class HasQuarterState implements State
 
     public function insertQuarter()
     {
-        echo "You can't insert another quarter");
+        echo "You can't insert another quarter";
     }
 
     public function ejectQuarter()

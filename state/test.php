@@ -1,4 +1,5 @@
 <?php
+require_once('GumballMachine.php');
 $gumballMachine = new GumballMachine(5);
 
 echo $gumballMachine;
