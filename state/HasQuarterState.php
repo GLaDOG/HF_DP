@@ -11,28 +11,28 @@ class HasQuarterState implements State
 
     public function insertQuarter()
     {
-        echo "You can't insert another quarter";
+        echo "You can't insert another quarter" . PHP_EOL;
     }
 
     public function ejectQuarter()
     {
-        echo "Quarter returned";
+        echo "Quarter returned" . PHP_EOL;
         $this->gumballMachine->setState($this->gumballMachine->getNoQuarterState());
     }
 
     public function turnCrank()
     {
-        echo "You turned...";
+        echo "You turned..." . PHP_EOL;
         $this->gumballMachine->setState($this->gumballMachine->getSoldState());
     }
 
     public function dispense()
     {
-        echo "No gumball dispenseed";
+        echo "No gumball dispenseed" . PHP_EOL;
     }
 
     public function __toString()
     {
-        return "waiting for turn of crank";
+        return "waiting for turn of crank" . PHP_EOL;
     }
 }

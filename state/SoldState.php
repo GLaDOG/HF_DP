@@ -11,17 +11,17 @@ class SoldState implements State
 
     public function insertQuarter()
     {
-        echo "Please wait, we're already giving you a gumball";
+        echo "Please wait, we're already giving you a gumball" . PHP_EOL;
     }
 
     public function ejectQuarter()
     {
-        echo "Sorry, you already turned the crank";
+        echo "Sorry, you already turned the crank" . PHP_EOL;
     }
 
     public function turnCrank()
     {
-        echo "Turning twice doesn't get you another gumball!";
+        echo "Turning twice doesn't get you another gumball!" . PHP_EOL;
     }
 
     public function dispense()
@@ -31,13 +31,13 @@ class SoldState implements State
         {
             $this->gumballMachine->setState($this->gumballMachine->getNoQuarterState());
         } else {
-            echo "Oops, out of gumballs!";
+            echo "Oops, out of gumballs!" . PHP_EOL;
             $this->gumballMachine->setState($this->gumballMachine->getSoldOutState());
         }
     }
 
     public function __toString()
     {
-        return "dispenseing a gumball";
+        return "dispenseing a gumball" . PHP_EOL;
     }
 }

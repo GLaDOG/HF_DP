@@ -15,7 +15,7 @@ class GumballMachine
 
     public function __construct($numberGumballs)
     {
-        $this->state = $this->soldOutState;//能初始化成功吗?
+        $this->state = $this->soldOutState;
         $this->soldOutState = new SoldOutState($this);
         $this->noQuarterState = new NoQuarterState($this);
         $this->hasQuarterState = new HasQuarterState($this);
@@ -94,15 +94,15 @@ class GumballMachine
 
     public function __toString()
     {
-        $result = "\nMighty Gumball, Inc.";
-        $result .= "\nPHP-enabled Standing Gumball Model #2004";
-        $result .= "\nInvertory: $this->count gumball";
+        $result = PHP_EOL . "Mighty Gumball, Inc.";
+        $result .= PHP_EOL . "PHP-enabled Standing Gumball Model #2004";
+        $result .= PHP_EOL . "Invertory: $this->count gumball";
         if ($this->count != 1)
         {
             $result .= "s";
         }
         $result .= "\n";
-        $result .= "Machine is $this->state \n";
+        $result .= "Machine is $this->state" . PHP_EOL;
         return $result;
     }
 }
