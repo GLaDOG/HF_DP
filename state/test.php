@@ -36,6 +36,15 @@ class Test
         $gumballMachine->turnCrank();
 
         echo $gumballMachine;
+
+        $gumballMachine->refill(1000);
+
+        for ($i = 0; $i < 100; $i++) {
+            $gumballMachine->insertQuarter();
+            $gumballMachine->turnCrank();
+        }
+        
+        echo $gumballMachine;
     }
 }
 
