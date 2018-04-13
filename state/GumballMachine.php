@@ -15,15 +15,16 @@ class GumballMachine
 
     public function __construct($numberGumballs)
     {
-        $this->state = $this->soldOutState;
         $this->soldOutState = new SoldOutState($this);
         $this->noQuarterState = new NoQuarterState($this);
         $this->hasQuarterState = new HasQuarterState($this);
         $this->soldState = new SoldState($this);
-
         $this->count = $numberGumballs;
+
         if ($numberGumballs > 0) {
             $this->state = $this->noQuarterState;
+        } else {
+            $this->state = $this->soldOutState;
         }
     }
 
@@ -43,9 +44,12 @@ class GumballMachine
         $this->state->dispense();
     }
 
+    /**
+     * 竟然写成这个样子:$this->state = $this->state;实在是无可救药了
+     */
     public function setState(State $state)
     {
-        $this->state = $this->state;
+        $this->state = $state;
     }
 
     public function releaseBall()
