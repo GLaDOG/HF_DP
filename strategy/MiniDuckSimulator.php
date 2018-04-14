@@ -6,11 +6,6 @@ require_once('ModelDuck.php');
 require_once('FlyRocketPowered.php');
 class MiniDuckSimulator
 {
-    public function __construct()
-    {
-
-    }
-
     public static function run()
     {
         $mallard = new MallardDuck();
